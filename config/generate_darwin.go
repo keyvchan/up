@@ -30,7 +30,7 @@ func Generate() {
 		}
 		defer f.Close()
 
-		_, err = f.WriteString(template)
+		_, err = f.WriteString(Template)
 		if err != nil {
 			log.Fatal(err)
 		}
