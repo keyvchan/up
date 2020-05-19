@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"os/exec"
@@ -14,6 +15,7 @@ func main() {
 	Items := config.Parse()
 
 	for _, item := range Items {
+		fmt.Println("\u001b[32;1m"+"\u279c", " "+item.Kind+":", item.Name, "\u001b[0m")
 		cmd := exec.Command(item.Command, item.Args...)
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
@@ -21,6 +23,7 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
+		fmt.Println()
 	}
 
 }
